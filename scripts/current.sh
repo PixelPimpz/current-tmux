@@ -2,7 +2,7 @@
 main () {
   printf "%s is running, but WHY?\n" $0
   SPID=$( tmux display -p "#{pane_pid}" )
-  CPID=$( pgrep -P $SPID -l )
+  CPID=$( ps --ppid $SPID )
   setStatusBar
   dbug
 }
@@ -18,6 +18,5 @@ setStatusBar () {
 dbug () {
   echo "Shell PID: $SPID"
   echo "Child PID: $CPID"
-  echo "InUse $MPID"
 }
 main
