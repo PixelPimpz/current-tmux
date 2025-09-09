@@ -11,7 +11,7 @@ main () {
 setStatusBar () {
   tmux set -g @CurrentData "#W"
   tmux set -g @Current-style "fg=#{@Dark2},bg=#{@Dark}"
-  tmux set -g @Current "#[fg=#{@Dark2},bg=#{@Dark0}]#{@TriangleL}#[bg=#{@Light2}]#[reverse] #W #[noreverse]#[bg=#{Dark0}]#{@TriangleRInverse}"
+  tmux set -g @Current "#[fg=#{@Dark2},bg=#{@Dark0}]#{@TriangleL}#[bg=#{@Light2}]#[reverse] #W #[bg=#{Dark0}]#{@TriangleRInverse}"
   tmux set -g status-right "#{E:@Current}#{T:@DateTime}"
   tmux set -g status-right-length 0
 }
