@@ -3,7 +3,6 @@ main () {
   printf "%s is running, but WHY?\n" $0
   SPID=$( tmux display -p "#{pane_pid}" )
   CPID=$( pgrep -P $SPID -l )
-  MPID="$( ps -O comm= ${CPID%% *} )"
   setStatusBar
   dbug
 }
