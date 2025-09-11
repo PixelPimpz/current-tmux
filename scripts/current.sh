@@ -18,6 +18,6 @@ setStatusBar () {
 }
 
 dbug () {
-  echo "Running in active pane: ${PINFO%%:*} PID: ${PINFO##*:"
+  echo "Running in active pane: ${PINFO%%:*} PID: ${PINFO##*:}"
 }
 main
