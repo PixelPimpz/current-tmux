@@ -5,7 +5,8 @@ main () {
   printf "%s is running, but WHY?\n" $0
   SPID=$( tmux display -p "#{pane_pid}" )
   CPID=$( ps --no-headers --ppid $( tmux display -p "#{pane_pid}" ) -o comm,pid )
-  
+  PANEID=$( tmux display -p "#{pane_id}" )
+  tmux list-panes -F '\#{pane_id}:\#{pane-current-command}'
   setStatusBar
   dbug
 }
