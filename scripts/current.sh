@@ -2,7 +2,7 @@
 SPID=
 CPID=
 main () {
-  printf "%s is running\n" "${0##*scripts"
+  printf "%s is running\n" "${0##*x"
   SPID=$( tmux display -p "#{pane_pid}" )
   CPID=$( ps --no-headers --ppid $( tmux display -p "#{pane_pid}" ) -o comm,pid )
   PANEID=$( tmux display -p "#{pane_id}" )
