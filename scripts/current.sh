@@ -2,7 +2,7 @@
 SPID=
 CPID=
 main () {
-  printf "%s is running\n" "${0##*x}"
+  #printf "%s is running\n" "${0##*x}"
   SPID=$( tmux display -p "#{pane_pid}" )
   PINFO=$( tmux list-panes -F "#{pane_current_command}:#{pane_pid}" | grep -e "$SPID" )
   setStatusBar
