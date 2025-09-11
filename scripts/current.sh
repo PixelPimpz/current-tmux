@@ -6,7 +6,7 @@ main () {
   SPID=$( tmux display -p "#{pane_pid}" )
   CPID=$( ps --no-headers --ppid $( tmux display -p "#{pane_pid}" ) -o comm,pid )
   PANEID=$( tmux display -p "#{pane_id}" )
-  tmux list-panes -F "#{pane_current_command} #{pane_pid}" | grep -e "$SPID"
+  tmux list-panes -F "#{pane_current_command}:#{pane_pid}" | grep -e "$SPID"
   setStatusBar
   dbug
 }
