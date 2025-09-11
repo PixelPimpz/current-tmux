@@ -7,7 +7,6 @@ main () {
   PINFO=$( tmux list-panes -F "#{pane_current_command}:#{pane_pid}" | grep -e "$SPID" )
   setStatusBar
   tmux refresh-client
-  dbug
 }
 
 setStatusBar () {
