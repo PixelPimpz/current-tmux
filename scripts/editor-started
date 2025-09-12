@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 echo "editor-started called"
 tmux display "#[align=centre]nvim started"
-tmux set -u @nvim-started
+#tmux set -u @nvim-started
