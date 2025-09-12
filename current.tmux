@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source "${CURRENT_DIR}/scripts/alias"
+source ${CURRENT_DIR}/scripts/alias
 tmux set-hook -g after-set-option           '%if "#{@nvim-started}" display "NVIM"'
 tmux set-hook -g session-created            'source-file "${TMUX_ROOT}/tmux.conf"'
 tmux set-hook -g session-window-changed[0]  'source-file "${TMUX_ROOT}/tmux.conf"'
