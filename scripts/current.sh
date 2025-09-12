@@ -22,7 +22,8 @@ setStatusBar () {
   else
     name="${FILEN%% *}"
     file="${FILEN##* }"
-    currentData="$(tmux display -p #{@Document}) ${file}"
+    local icon=$( tmux display -p "#{@Document}" )
+    currentData="${icon} ${file}"
   fi
   tmux set -g @CurrentData "${currentData}"
   tmux set -g @Current "#[fg=#{@Dark2},bg=#{@Dark0}]#{@TriangleL}#[fg=#{@Light2},bg=#{@Dark2}] #{@CurrentData} #[fg=#{@Dark2},bg=#{@Dark0}]#{@TriangleRInverse}"
