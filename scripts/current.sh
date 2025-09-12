@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 debug=$1
 [[ ! debug ]] && debug=0
-alias nvim="nvim -c 'tmux set-option -g @nvim-started' "
+#alias nvim="nvim -c 'tmux set-option -g @nvim-started' "
+alias nvim="nvim -c 'tmux display "boogie woogie"'
 SPID=
 CPID=
 main () {
