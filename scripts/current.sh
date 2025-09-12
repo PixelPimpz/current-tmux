@@ -4,7 +4,7 @@ debug=$1
 SPID=
 CPID=
 main () {
-  printf "%s is running\n" "${0##*x}"
+  #printf "%s is running\n" "${0##*x}"
   PANEPID=$( tmux display -p "#{pane_pid}" )
   CHILDPID=$(pgrep -P "${PANEPID}")
   PINFO=$( tmux list-panes -F "#{pane_current_command}:#{pane_pid}" | grep -e "$SPID" )
@@ -21,6 +21,6 @@ setStatusBar () {
 
 dbug () {
   echo "Running in active pane: ${PINFO%%:*} PID: ${PINFO##*:}"
-  echo "${CHILDPID}"
+  printf "PANEPID: %s\nCHILDPID: %s\n" "${PANEPID}" "${CHILDPID}"
 }
 main
