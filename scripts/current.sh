@@ -2,10 +2,10 @@
 debug=$1
 [[ ! debug ]] && debug=0
 #alias nvim="nvim -c 'tmux set-option -g @nvim-started' "
-alias nvim="nvim -c 'tmux display "boogie woogie"'"
 SPID=
 CPID=
 main () {
+  alias nvim='nvim -c "tmux display -p  #{@Red}" '
   PANEPID=$( tmux display -p "#{pane_pid}" )
   CHILDPID=$(pgrep -P "${PANEPID}")
   FILEN=$(ps --no-headers -o command -p "${CHILDPID}" )
