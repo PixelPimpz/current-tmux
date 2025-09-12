@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+alias nvim='nvim "+! ./on-nvim-start"
