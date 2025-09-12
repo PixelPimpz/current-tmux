@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-alias nvim='nvim "+! ./on-nvim-start"
+alias nvim='nvim "+! tmux set -g @NvimStart true" '
