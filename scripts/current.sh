@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 debug=$1
 [[ ! debug ]] && debug=0
-source ./alias
 SPID=
 CPID=
 main () {
