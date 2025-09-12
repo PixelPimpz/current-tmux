@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
+debug=$1
+[[ ! debug ]] && debug=0
 SPID=
 CPID=
 main () {
   printf "%s is running\n" "${0##*x}"
-  SPID=$( tmux display -p "#{pane_pid}" )
+  PANEPID=$( tmux display -p "#{pane_pid}" )
+  CHILDPID=$(pgrep -P "${PANEPID}")
   PINFO=$( tmux list-panes -F "#{pane_current_command}:#{pane_pid}" | grep -e "$SPID" )
   setStatusBar
-  #dbug
+  [[ debug -ne 0 ]] && dbug
 }
 
 setStatusBar () {
@@ -18,5 +21,6 @@ setStatusBar () {
 
 dbug () {
   echo "Running in active pane: ${PINFO%%:*} PID: ${PINFO##*:}"
+  echo "${CHILDPID}"
 }
 main
