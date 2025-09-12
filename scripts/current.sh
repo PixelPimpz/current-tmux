@@ -5,7 +5,7 @@ debug=$1
 SPID=
 CPID=
 main () {
-  alias nvim='nvim -c "tmux display -p  #{@Red}" '
+  alias nvim='nvim -c "tmux set status-fg #{@Red}" '
   PANEPID=$( tmux display -p "#{pane_pid}" )
   CHILDPID=$(pgrep -P "${PANEPID}")
   FILEN=$(ps --no-headers -o command -p "${CHILDPID}" )
