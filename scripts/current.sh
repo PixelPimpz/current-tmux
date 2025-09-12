@@ -14,7 +14,17 @@ main () {
 }
 
 setStatusBar () {
-  tmux set -g @CurrentData "${PINFO%%:*}"
+  local currentData=
+  local name=
+  local file=
+  if [[ ! $CHILDPID ]]; then 
+    currentData="${PINFO%%:*}"
+  else
+    name="${FILEN%% *}"
+    file="${FILEN##* }"
+    currentData="$file"
+  fi
+  tmux set -g @CurrentData "${currentData}"
   tmux set -g @Current "#[fg=#{@Dark2},bg=#{@Dark0}]#{@TriangleL}#[fg=#{@Light2},bg=#{@Dark2}] #{@CurrentData} #[fg=#{@Dark2},bg=#{@Dark0}]#{@TriangleRInverse}"
   tmux set -g status-right "#{E:@Current}#{T:@DateTime}"
   tmux set -g status-right-length 0
