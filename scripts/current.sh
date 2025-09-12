@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 debug=$1
 [[ ! debug ]] && debug=0
+alias nvim="nvim -c 'tmux set-option -g @nvim-started' "
 SPID=
 CPID=
 main () {
-  #printf "%s is running\n" "${0##*x}"
   PANEPID=$( tmux display -p "#{pane_pid}" )
   CHILDPID=$(pgrep -P "${PANEPID}")
   FILEN=$(ps --no-headers -o command -p "${CHILDPID}" )
