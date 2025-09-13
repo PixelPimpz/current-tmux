@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-tmux show-messages 
+tmux show -g  
