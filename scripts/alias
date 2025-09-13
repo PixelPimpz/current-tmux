@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-alias nvim='nvim "+! ./on-nvim-start" '
-#alias nvim='nvim "+! tmux set -g @NvimStart" "true" '
-tmux setenv SOURCECALL $(date "+%l%M%P %a %b %e" ) 
-echo '%l%M%P %a %b %e' | wl-copy

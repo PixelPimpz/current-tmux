@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-tmux show -g  
+tmux source-file $TMUX_ROOT/tmux.conf
+tmux display "NVIM OPENED, tmux.conf refreshed."
