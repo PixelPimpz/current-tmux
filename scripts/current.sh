@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#! usr/bin/env bash
 debug=$1
 [[ ! debug ]] && debug=0
 SPID=
@@ -20,7 +20,7 @@ setStatusBar () {
     currentData="${PINFO%%:*}"
   else
     name="${FILEN%% *}"
-    file="${FILEN##* }"
+    file="$( basename ${FILEN##*} )
     local icon=$( tmux display -p "#{@Document}" )
     currentData="${icon} ${file}"
   fi
