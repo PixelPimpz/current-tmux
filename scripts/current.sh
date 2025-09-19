@@ -20,7 +20,7 @@ setStatusBar () {
     currentData="${PINFO%%:*}"
   else
     name="${FILEN%% *}"
-    file="$( basename ${FILEN##*} )
+    file="$( basename ${FILEN##*} )"
     local icon=$( tmux display -p "#{@Document}" )
     currentData="${icon} ${file}"
   fi
