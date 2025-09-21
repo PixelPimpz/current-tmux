@@ -1,4 +1,4 @@
-#! usr/bin/env bash
+#! /usr/bin/env bash
 debug=$1
 [[ ! debug ]] && debug=0
 SPID=
