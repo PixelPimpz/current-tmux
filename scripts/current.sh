@@ -1,8 +1,10 @@
 #! /usr/bin/env bash
+CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 debug=$1
 [[ ! debug ]] && debug=0
 SPID=
 CPID=
+ICOND=
 main () {
   PANEPID=$( tmux display -p "#{pane_pid}" )
   CHILDPID=$(pgrep -P "${PANEPID}")
@@ -16,11 +18,14 @@ setStatusBar () {
   local currentData=
   local name=
   local file=
+  local icon=
   if [[ ! $CHILDPID ]]; then 
-    currentData="${PINFO%%:*}"
+    name="${PINFO%%:*}"
+#   icon="$(grep -e $name $CURRENT_DIR/)"
+    currentData="${name}"
   else
     name="${FILEN%% *}"
-    file="${FILEN##*}"
+    file="${FILEN##* }"
     local icon=$( tmux display -p "#{@Document}" )
     currentData="${icon} ${file}"
   fi
@@ -32,6 +37,6 @@ setStatusBar () {
 
 dbug () {
   echo "Running in active pane: ${PINFO%%:*} PID: ${PINFO##*:}"
-  printf "PANEPID: %s\nCHILDPID: %s\nFILEN: %s\n" "${PANEPID}" "${CHILDPID}" "${FILEN}"
+  printf "PANEPID: %s\nCHILDPID: %s\nFILEN: %s\nCURRENT_DIR: %s\n" "${PANEPID}" "${CHILDPID}" "${FILEN}" "${CURRENT_DIR}"
 }
 main
