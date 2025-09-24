@@ -22,7 +22,8 @@ setStatusBar () {
   local icon=
   if [[ ! $CHILDPID ]]; then 
     name="${PINFO%%:*}"
-    ICON="$(grep -e "$name" $ICOND/app-icons.yml)"
+    icon="$(grep -e "$name" $ICOND/app-icons.yml)"
+    ICON="${icon##*:}"
     currentData="${name}"
   else
     name="${FILEN%% *}"
