@@ -5,6 +5,7 @@ debug=$1
 SPID=
 CPID=
 ICOND=$CURRENT_DIR/../lib
+ICON=
 main () {
   PANEPID=$( tmux display -p "#{pane_pid}" )
   CHILDPID=$(pgrep -P "${PANEPID}")
@@ -21,7 +22,7 @@ setStatusBar () {
   local icon=
   if [[ ! $CHILDPID ]]; then 
     name="${PINFO%%:*}"
-#   icon="$(grep -e $name $CURRENT_DIR/)"
+    ICON="$(grep -e "$name" $ICOND/app-icons.yml)"
     currentData="${name}"
   else
     name="${FILEN%% *}"
@@ -37,6 +38,6 @@ setStatusBar () {
 
 dbug () {
   echo "Running in active pane: ${PINFO%%:*} PID: ${PINFO##*:}"
-  printf "PANEPID: %s\nCHILDPID: %s\nFILEN: %s\nICOND: %s\n" "${PANEPID}" "${CHILDPID}" "${FILEN}" "${ICOND}"
+  printf "PANEPID: %s\nCHILDPID: %s\nFILEN: %s\nICOND: %s\nICON: %s\n" "${PANEPID}" "${CHILDPID}" "${FILEN}" "${ICOND}" "${ICON}"
 }
 main
