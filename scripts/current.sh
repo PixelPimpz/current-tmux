@@ -24,7 +24,7 @@ setStatusBar () {
     name="${PINFO%%:*}"
     icon="$(grep -e "$name" $ICOND/app-icons.yml)"
     ICON="$( sed 's/\"//g' <<< ${icon##*:} )"
-    currentData="${name}"
+    currentData="${ICON} ${name}"
   else
     name="${FILEN%% *}"
     file="${FILEN##* }"
