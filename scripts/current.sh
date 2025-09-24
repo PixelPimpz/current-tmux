@@ -4,7 +4,7 @@ debug=$1
 [[ ! debug ]] && debug=0
 SPID=
 CPID=
-ICOND=
+ICOND=$CURRENT_DIR/../lib
 main () {
   PANEPID=$( tmux display -p "#{pane_pid}" )
   CHILDPID=$(pgrep -P "${PANEPID}")
@@ -37,6 +37,6 @@ setStatusBar () {
 
 dbug () {
   echo "Running in active pane: ${PINFO%%:*} PID: ${PINFO##*:}"
-  printf "PANEPID: %s\nCHILDPID: %s\nFILEN: %s\nCURRENT_DIR: %s\n" "${PANEPID}" "${CHILDPID}" "${FILEN}" "${CURRENT_DIR}"
+  printf "PANEPID: %s\nCHILDPID: %s\nFILEN: %s\nICOND: %s\n" "${PANEPID}" "${CHILDPID}" "${FILEN}" "${ICOND}"
 }
 main
